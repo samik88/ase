@@ -11,6 +11,8 @@ require 'PHPMailerAutoload.php';
 
 function sendMail($email,$name,$msg){	
 
+	echo "mail";
+
 $mail = new PHPMailer;
 
 //Tell PHPMailer to use SMTP
@@ -20,47 +22,49 @@ $mail->isSMTP();
 // 0 = off (for production use)
 // 1 = client messages
 // 2 = client and server messages
-//$mail->SMTPDebug = 2;
+$mail->SMTPDebug = 0;
 
 //Ask for HTML-friendly debug output
 //$mail->Debugoutput = 'html';
 
 //Set the hostname of the mail server
-$mail->Host = 'localhost';
+//$mail->Host = 'localhost';
+$mail->Host = 'smtp.gmail.com';
 
 //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
-$mail->Port = 25;
+//$mail->Port = 25;
+$mail->Port = 587;
 
 //Set the encryption system to use - ssl (deprecated) or tls
-//$mail->SMTPSecure = 'tls';
+$mail->SMTPSecure = 'tls';
 
 //Whether to use SMTP authentication
-$mail->SMTPAuth = false;
+$mail->SMTPAuth = true;
 
 //Username to use for SMTP authentication - use full email address for gmail
-//$mail->Username = "register@my.aseshopping.com";
+$mail->Username = "no-reply@aseshopping.com";
 
 //Password to use for SMTP authentication
-//$mail->Password = "aseshopping.com2015";
+$mail->Password = "mq3jg4GD";
 
 //Set who the message is to be sent from
-$mail->setFrom('norepl@my.aseshopping.com', 'noreply@my.aseshopping.com');
+$mail->setFrom('no-reply@aseshopping.com', 'ASESHOPPING');
 
 //Set an alternative reply-to address
-//$mail->addReplyTo('replyto@aseshopping.com', 'First Last');
+$mail->addReplyTo('no-reply@aseshopping.com', 'ASESHOPPING');
 
 //Set who the message is to be sent to
 $mail->addAddress($email, $name);
 
 //Set the subject line
-$mail->Subject = 'registration on my.aseshopping.com site';
+$mail->Subject = 'Welcome to ASESHOPPING.AZ';
 
 //Read an HTML message body from an external file, convert referenced images to embedded,
 //convert HTML into a basic plain-text alternative body
 $mail->msgHTML($msg);
 
 //Replace the plain text body with one created manually
-$mail->AltBody = 'registration';
+$mail->AltBody = 'Registration';
 
 
 //$mail->Body="test";

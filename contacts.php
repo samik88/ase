@@ -1,293 +1,205 @@
-﻿<?php
-session_start();
+<?php
+   $index_sub="";
+   $usa_sub="";
+   $uk_sub="";
+   $turkey_sub="";
+   $orders_sub="";
+   $purchases_sub="";
+   $ask_buy_sub="";  
+   $declaration_sub="";
+   $faq_sub="";
+   $contacts_sub="active";
+   include("header.php");
 
+   ?>
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="content-page">
+   <!-- Start content -->
+   <div class="content">
+      <div class="container">
+         <!-- Page-Title -->
+         <div class="row">
+            <div class="col-sm-12">
+               <h4 class="pull-left page-title">
+               </h4>
+               <ol class="breadcrumb pull-right">
+                  <li>
+                     <a href="#">
+                     ASEshopping
+                     </a>
+                  </li>
+                  <li class="active">
+                     Contacts
+                  </li>
+               </ol>
+            </div>
+         </div>
+         <div class="row">
+            <!-- contact info -->
+            <!-- Personal-Information -->
+            <div class="panel panel-default panel-fill">
+               <div class="panel-heading">
+                  <h3 class="panel-title">
+                     Office Information
+                      <a data-toggle="collapse" data-parent="#contact-form" href="#office-info"  style="float:right">
+                          <i class="ion-minus-round">
+                          </i>
+                        </a>
+                  </h3>
+               </div>
+               <div class="panel-body  collapsed in" id="office-info">
+                  <div class="col-md-5">
+                     <div class="about-info-p m-b-0">
+                        <i class="md md-place">
+                        </i>
+                        <strong>
+                        Location
+                        </strong>
+                        <br>
+                        <p class="text-muted">
+                           Uzeyir Hacibeyov str, 61b
+                        </p>
+                     </div>
+                     <div class="about-info-p">
+                        <i class="md md-local-phone">
+                        </i>
+                        <strong>
+                        Phone
+                        </strong>
+                        <br>
+                        <p class="text-muted">
+                           +994 12 493 84 73
+                           <br/>
+                           +994 12 497 3775(ext 10)
+                        </p>
+                     </div>
+                     <div class="about-info-p">
+                        <i class="md md-email">
+                        </i>
+                        <strong>
+                        Email
+                        </strong>
+                        <br>
+                        <p class="text-muted">
+                           support@aseshopping.com 
+                        </p>
+                     </div>
+                  </div>
+                  <div class="col-md-7">
+                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.5677930655597!2d49.84770921498362!3d40.37410686615527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307da94c37f7b9%3A0x1af4406d8b35abea!2sASE+express!5e0!3m2!1sen!2sus!4v1454234042476" width="600" height="450" frameborder="0" style="border:0" allowfullscreen>
+                     </iframe>
+                  </div>
+               </div>
+               <!-- Personal-Information -->
+            </div>
+            <!-- end col -->
+         </div>
+         <!-- end row -->
+         <!-- start column with conatct form -->
+         <div class="row">
+            <div class="panel panel-default panel-fill">
+               <div class="panel-heading">
+                  <h3 class="panel-title">
+                     Contact form 
+                     <a data-toggle="collapse" data-parent="#contact-form" href="#contact-form"  style="float:right">
+                          <i class="ion-minus-round">
+                          </i>
+                        </a>
+                  </h3>
+               </div>
+               <div class="panel-body" id="contact-form">
+                <div id="send_result" class="form-group">
+                </div>
+                  <form class="form-horizontal" role="form" action="#" method="POST">
+                     <div class="form-group">
+                        <label class="col-md-2 control-label">Topic</label>
+                        <div class="col-md-10">
+                         <select class="form-control" name="topic" id="topic">
+                              <option value="-1">Select topic</option>
+                              <option value="0">Order item</option>
+                              <option value="1">Delivery</option>
+                              <option value="2">Payment</option>
+                              <option value="3">Lost items</option>
+                              <option value="4">Problem with Turkish orders</option>
+                              <option value="5">Mobile phone number for Turkey orders</option>
+                              <option value="6">Turkish pasport for Turkey orders </option>
+                              <option value="7">Turkish credit card for Turkish orders</option>
+                              <option value="8">Changing personal info</option>
+                              <option value="9">Other</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label class="col-md-2 control-label">Message body</label>
+                        <div class="col-md-10">
+                           <textarea  class="form-control" name="message" id="message"></textarea>
+                        </div>
+                     </div>
+                  
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label">Country</label>
+                        <div class="col-sm-10">
+                           <select class="form-control" name="country" id="country">
+                              <option value="-1">Select country</option>
+                              <option value="0">No country</option>
+                              <option value="1">USA</option>
+                              <option value="2">UK</option>
+                              <option value="3">TURKEY</option>
+                           </select>
+                           
+                        </div>
+                     </div>
+                      <div >
+                          <label class="col-sm-2 control-label"></label>
+                          <div  class="btn btn-info  waves-effect waves-light" id="sendForm">Send</div>
+                      </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+         <!-- end row -->
+      </div>
+      <!-- container -->
+   </div>
+   <!-- content -->
+   <footer class="footer text-right">
+      2015-2016 © ASEshopping.
+   </footer>
+</div>
+<!-- ============================================================== -->
+<!-- End Right content here -->
+<!-- ============================================================== -->
+
+<?php
+   include("footer.php");
 ?>
 
-<!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-<!--<![endif]-->
-<!-- BEGIN HEAD -->
-<head>
-<meta charset="utf-8"/>
-<title>ASESHOPPIG</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-<meta content="" name="description"/>
-<meta content="" name="author"/>
-<!-- BEGIN GLOBAL MANDATORY STYLES -->
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">
-<link href="assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
-<link href="assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css">
-<link href="assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
-<!-- END GLOBAL MANDATORY STYLES -->
-<!-- BEGIN THEME STYLES -->
-<link href="assets/global/css/components-rounded.css" id="style_components" rel="stylesheet" type="text/css"/>
-<link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
-<link href="assets/admin/layout4/css/layout.css" rel="stylesheet" type="text/css"/>
-<link id="style_color" href="assets/admin/layout4/css/themes/light.css" rel="stylesheet" type="text/css"/>
-<link href="assets/admin/layout4/css/custom.css" rel="stylesheet" type="text/css"/>
-<!-- END THEME STYLES -->
-<link rel="shortcut icon" href="favicon.ico"/>
-</head>
-<!-- END HEAD -->
-<!-- BEGIN BODY -->
-<body class="page-header-fixed page-sidebar-closed-hide-logo">
-<!-- BEGIN HEADER -->
-<div class="page-header navbar navbar-fixed-top">
-	<!-- BEGIN HEADER INNER -->
-	<div class="page-header-inner">
-		<!-- BEGIN LOGO -->
-		<div class="page-logo">
-			<a href="index.html">
-			<img src="public/logo.jpg" alt="logo" class="logo-default"/>
-			</a>
-			<div class="menu-toggler sidebar-toggler">
-				<!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
-			</div>
-		</div>
-		<!-- END LOGO -->
-		<!-- BEGIN RESPONSIVE MENU TOGGLER -->
-		<a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
-		</a>
-		<!-- END RESPONSIVE MENU TOGGLER -->
-		<!-- BEGIN PAGE TOP -->
-<?php if(isset($_SESSION['pincode'])){
-?>
+      <script type="text/javascript">
+            $('#sendForm').click(function(){
+              var topic = $('#topic').val();
+              var message = $('#message').val();
+              var country = $('#country').val();
+              var accNumber = $('#accNumber').val();
+              if(topic=="-1"){
+                $('#send_result').html("<div class=\"text-warning\">Please, fill TOPIC field</div>");
+              }else{
+                if(message==""){
+                  $('#send_result').html("<div class=\"text-warning\">Please, choose MESSAGE from a list</div>");
+                }else{
+                  if(country=="-1"){
+                    $('#send_result').html("<div class=\"text-warning\">Please, choose COUNTRY from a list</div>");
+                  }else{
+                    var str="send_forms.php?topic="+topic+"&message="+message+"&country="+country+"&accNumber="+accNumber;
+                    ajaxFunc(str,'send_result');
+                    $('#topic').val("-1");
+                    $('#message').val("");
+                    $('#country').val("-1");
+                  }
+                }
+              }
+              
+            })
+      </script>
 
-		<div class="page-top">
-			<!-- BEGIN HEADER SEARCH BOX -->
-
-			<!-- BEGIN TOP NAVIGATION MENU -->
-			<div class="top-menu">
-				<ul class="nav navbar-nav pull-right">
-					<li class="separator hide">
-					</li>
-					<!-- BEGIN USER LOGIN DROPDOWN -->
-					<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-					<li class="dropdown dropdown-user dropdown-dark">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-						<span class="username username-hide-on-mobile">
-						<?php echo "Добро пожаловать, ".$_SESSION['username'];?></span>
-						<!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
-						<img alt="" class="img-circle"/>
-						</a>
-						<ul class="dropdown-menu dropdown-menu-default">
-							<li>
-								<a href="profile.php">
-								<i class="icon-user"></i> Мой профиль </a>
-							</li>
-							<li>
-								<a href="logout.php">
-								<i class="icon-key"></i> Выйти</a>
-							</li>
-						</ul>
-					</li>
-					<!-- END USER LOGIN DROPDOWN -->
-				</ul>
-			</div>
-			<!-- END TOP NAVIGATION MENU -->
-		</div>
-		<!-- END PAGE TOP -->
-<?php }?>
-	</div>
-	<!-- END HEADER INNER -->
-</div>
-<!-- END HEADER -->
-<div class="clearfix">
-</div>
-<!-- BEGIN CONTAINER -->
-<div class="page-container">
-<?php if(isset($_SESSION['pincode'])){
-?>
-	<!-- BEGIN SIDEBAR -->
-	<div class="page-sidebar-wrapper">
-		<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-		<!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-		<div class="page-sidebar navbar-collapse collapse">
-			<!-- BEGIN SIDEBAR MENU -->
-			<!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
-			<!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
-			<!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
-			<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-			<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
-			<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-			<ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
-				<li>
-					<a href="dashboard.php">
-					<i class="icon-home"></i>
-					<span class="title">Главная</span> 
-					</a>
-				</li>
-				<li>
-					<a href="orders.php">
-					<i class="icon-bag"></i>
-					<span class="title">Товары</span>
-					</a>
-				</li>
-				<li>
-					<a href="orders_view.php">
-					<i class="icon-docs"></i>
-					<span class="title">Оплаты</span>
-					</a>
-				</li>
-				<li>
-					<a href="howto.php">
-					<i class="icon-info"></i>
-					<span class="title">HOW-TO</span>
-					</a>
-				</li>				
-				<li>
-					<a href="faq.php">
-					<i class="icon-question"></i>
-					<span class="title">FAQ</span>
-					</a>
-				</li>	
-				<li>
-					<a href="contacts.php">
-					<i class="fa fa-phone"></i>
-					<span class="title">Контакты</span> 
-					</a>
-				</li>							
-			</ul>
-			<!-- END SIDEBAR MENU -->
-		</div>
-	</div>
-	<!-- END SIDEBAR -->
-	<!-- BEGIN CONTENT -->
-	<div class="page-content-wrapper">
-		<div class="page-content">
-			<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-			<div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-							<h4 class="modal-title">Modal title</h4>
-						</div>
-						<div class="modal-body">
-							 Widget settings form goes here
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn blue">Save changes</button>
-							<button type="button" class="btn default" data-dismiss="modal">Close</button>
-						</div>
-					</div>
-					<!-- /.modal-content -->
-				</div>
-				<!-- /.modal-dialog -->
-			</div>
-			<!-- /.modal -->
-			<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-			<!-- BEGIN PAGE HEADER-->
-			<!-- BEGIN PAGE HEAD -->
-			
-			<!-- END PAGE HEAD -->
-			<!-- END PAGE HEADER-->
-			<!-- BEGIN PAGE CONTENT-->
-			<div class="portlet light">
-				<div class="portlet-body">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="row margin-bottom-20">
-								<div class="col-md-6">
-									<div class="space20">
-									</div>
-									<h3 class="form-section">Контакты</h3>
-
-									<div class="well">
-									
-										<h4>Адрес</h4>
-										<address>
-										<strong>Улица Узеира Гаджибекова 61<br/></strong><br>
-										<abbr title="Phone">Телефон:</abbr> +994 12 497 3775</address>
-										<address>
-										<strong>Email</strong><br>
-										<a href="mailto:info@aseshopping.com">
-										info@aseshopping.com </a><br/>
-									<a href="mailto:support@aseshopping.com">
-										support@aseshopping.com </a><br/>
-										</address>
-										<ul class="social-icons margin-bottom-10">
-											<li>
-												<a href="#" data-original-title="facebook" class="facebook">
-												</a>
-											</li>
-											<li>
-												<a href="#" data-original-title="skype" class="skype">
-												</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="space20">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-<?php }else{
-    echo '<div style="min-height:300px; background-color:#fff;border-radius:5px;padding:15px;">';
-	
-    echo "Надо сначала <a href='http://my.aseshopping.com/login.php'>зайти</a> в систему</div>";
-}?>
-
-			</div>
-			<!-- END PAGE CONTENT-->
-		</div>
-	</div>
-	<!-- END CONTENT -->
-		</div>
-	</div>
-	<!-- END CONTENT -->
-</div>
-<!-- END CONTAINER -->
-<!-- BEGIN FOOTER -->
-<div class="page-footer">
-	<div class="page-footer-inner">
-		 2015 &copy; ASESHOPPING.
-	</div>
-	<div class="scroll-to-top">
-		<i class="icon-arrow-up"></i>
-	</div>
-</div>
-<!-- END FOOTER -->
-<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
-<!-- BEGIN CORE PLUGINS -->
-<!--[if lt IE 9]>
-<script src="assets/global/plugins/respond.min.js"></script>
-<script src="assets/global/plugins/excanvas.min.js"></script> 
-<![endif]-->
-<script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-<script src="assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
-<!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-<script src="assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
-<script src="assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
-<script src="assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-<script src="assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
-<script src="assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
-<script src="assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
-<!-- END CORE PLUGINS -->
-<script src="assets/global/scripts/metronic.js" type="text/javascript"></script>
-<script src="assets/admin/layout4/scripts/layout.js" type="text/javascript"></script>
-<script src="assets/admin/layout4/scripts/demo.js" type="text/javascript"></script>
-<script>
-      jQuery(document).ready(function() {    
-         Metronic.init(); // init metronic core components
-Layout.init(); // init current layout
-Demo.init(); // init demo features
-      });
-   </script>
-<!-- END JAVASCRIPTS -->
-</body>
-<!-- END BODY -->
-</html>

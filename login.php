@@ -1,133 +1,133 @@
 <!DOCTYPE html>
-<?php 
+<?php
 session_start();
 include("functions.php");
 
 ?>
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-<!--<![endif]-->
-<!-- BEGIN HEAD -->
-<head>
-<meta charset="utf-8"/>
-<title>ASETRADE</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-<meta content="" name="description"/>
-<meta content="" name="author"/>
-<!-- BEGIN GLOBAL MANDATORY STYLES -->
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
-<link href="assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-<link href="assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
-<link href="assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-<link href="assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
-<!-- END GLOBAL MANDATORY STYLES -->
-<!-- BEGIN PAGE LEVEL STYLES -->
-<link href="assets/admin/pages/css/login.css" rel="stylesheet" type="text/css"/>
-<!-- END PAGE LEVEL SCRIPTS -->
-<!-- BEGIN THEME STYLES -->
-<link href="assets/global/css/components-rounded.css" id="style_components" rel="stylesheet" type="text/css"/>
-<link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
-<link href="assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
-<link href="assets/admin/layout/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
-<link href="assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
-<!-- END THEME STYLES -->
-<link rel="shortcut icon" href="favicon.ico"/>
-</head>
-<!-- END HEAD -->
-<!-- BEGIN BODY -->
-<body class="login">
-<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-<div class="menu-toggler sidebar-toggler">
-</div>
-<!-- END SIDEBAR TOGGLER BUTTON -->
-<!-- BEGIN LOGO -->
-<div class="logo">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+        <meta name="author" content="Coderthemes">
 
-</div>
-<!-- END LOGO -->
-<!-- BEGIN LOGIN -->
-<div class="content">
-<?php	if(isset($_POST['username'])&&isset($_POST['password'])){
-	
-        $r=login($_POST['username'],$_POST['password']);
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
 
-    if($r[0]!=-1){
-    $_SESSION["pincode"]=$r[0]; 
-    $_SESSION["username"]=$r[1]; 
-    $_SESSION["accNumber"]=$r[2]; 
-    header("location: dashboard.php");
-    exit;
-    }else{
-    	echo $r[1];
+        <title>ASEshopping - Personal delivery from USA, UK, Turkey to Baku</title>
+
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/core.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/components.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/pages.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/menu.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/responsive.css" rel="stylesheet" type="text/css">
+
+        <script src="assets/js/modernizr.min.js"></script>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+    <body>
+
+
+        <div class="wrapper-page">
+            <div class="panel panel-color panel-primary panel-pages">
+                <div class="panel-heading bg-img"> 
+                    <div class="bg-overlay"></div>
+                    <h3 class="text-center m-t-10 text-white"> Sign In to <strong>ASEshopping</strong> </h3>
+                </div> 
+
+
+                <div class="panel-body">
+                    <?php
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    $r = login($_POST['username'], $_POST['password']);
+    
+    if ($r[0] != -1) {
+        
+        $_SESSION["pincode"]   = $r[0];
+        $_SESSION["username"]  = $r[1];
+        $_SESSION["accNumber"] = $r[2];
+        $_SESSION["email"]     = $r[3];
+        
+        header("location: index.php");
+        exit;
+    } else {
+        echo $r[1];
     }
-}?>
-<div style="text-align:right"><a href="http://aseshopping.com">x</a></div>
-	<!-- BEGIN LOGIN FORM -->
-	<form class="login-form" action="login.php" method="post">
-		<h3 class="form-title">Вход</h3>
-		<div class="alert alert-danger display-hide">
-			<button class="close" data-close="alert"></button>
-			<span>
-			Enter any username and password. </span>
-		</div>
-		<div class="form-group">
-			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-			<label class="control-label visible-ie8 visible-ie9">Username</label>
-			<input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="username"/>
-		</div>
-		<div class="form-group">
-			<label class="control-label visible-ie8 visible-ie9">Password</label>
-			<input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Пароль" name="password"/>
-		</div>
-		<div class="form-actions">
-			<button type="submit" class="btn btn-success uppercase">Зайти</button>
-			<a href="http://my.aseshopping.com/reset_pass.php"  id="forget-password" class="forget-password">Забыли пароль?</a>
-		</div>
-		<div class="create-account">
-			<p>
-				<a href="register.php" id="register-btn" class="uppercase">Создать профиль?</a>
-			</p>
-		</div>
-	</form>
-</div>
-	<!-- END LOGIN FORM -->
-	
-<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
-<!-- BEGIN CORE PLUGINS -->
-<!--[if lt IE 9]>
-<script src="assets/global/plugins/respond.min.js"></script>
-<script src="assets/global/plugins/excanvas.min.js"></script> 
-<![endif]-->
-<script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-<script src="assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
-<script src="assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-<script src="assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
-<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
-<!-- END CORE PLUGINS -->
-<!-- BEGIN PAGE LEVEL PLUGINS -->
-<script src="assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
-<!-- END PAGE LEVEL PLUGINS -->
-<!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script src="assets/global/scripts/metronic.js" type="text/javascript"></script>
-<script src="assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
-<script src="assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
-<script src="assets/admin/pages/scripts/login.js" type="text/javascript"></script>
-<!-- END PAGE LEVEL SCRIPTS -->
-<script>
-jQuery(document).ready(function() {     
-Metronic.init(); // init metronic core components
-Layout.init(); // init current layout
-Login.init();
-Demo.init();
-});
-</script>
-<!-- END JAVASCRIPTS -->
-</body>
-<!-- END BODY -->
-</html>
+}
+?>
+                <form class="form-horizontal m-t-20" action="#" method="post">
+                    
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="form-control input-lg" type="email" required="" placeholder="Username" name="username">
+                        </div>
+                    </div>
 
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="form-control input-lg" type="password" required="" placeholder="Password" name="password">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <div class="checkbox checkbox-primary">
+                                <input id="checkbox-signup" type="checkbox">
+                                <label for="checkbox-signup">
+                                    Remember me
+                                </label>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="form-group text-center m-t-40">
+                        <div class="col-xs-12">
+                            <button class="btn btn-primary btn-lg w-lg waves-effect waves-light" type="submit">Log In</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group m-t-30">
+                        <div class="col-sm-7">
+                            <a href="recoverpw.php"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
+                        </div>
+                        <div class="col-sm-5 text-right">
+                            <a href="register.php">Create an account</a>
+                        </div>
+                    </div>
+                </form> 
+                </div>                                 
+                
+            </div>
+        </div>
+
+        
+        <script>
+            var resizefunc = [];
+        </script>
+
+        <!-- Main  -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/detect.js"></script>
+        <script src="assets/js/fastclick.js"></script>
+        <script src="assets/js/jquery.slimscroll.js"></script>
+        <script src="assets/js/jquery.blockUI.js"></script>
+        <script src="assets/js/waves.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/jquery.nicescroll.js"></script>
+        <script src="assets/js/jquery.scrollTo.min.js"></script>
+
+        <script src="assets/js/jquery.app.js"></script>
+    
+    </body>
+</html>

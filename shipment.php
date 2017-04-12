@@ -2,7 +2,6 @@
 include("functions.php");
 
 $ini_array     = parse_ini_file("conf.ini");
-$AccountNumber = $ini_array['AccountNumber'];
 $Username      = $ini_array['Username'];
 $Password      = $ini_array['Password'];
 $SecurityKey   = $ini_array['SecurityKey'];
@@ -11,7 +10,7 @@ DEFINE('WS_USERNAME', $Username);
 DEFINE('WS_PASSWORD', $Password);
 DEFINE('WS_SECURITY_KEY', $SecurityKey);
 DEFINE('WS_AUTHCODE', $AuthorizeCode);
-DEFINE('WS_ACCNUMBER', $AccountNumber);
+
 $headers     = array(
     "Content-type: text/xml;charset=\"utf-8\"",
     "Accept: text/xml",
@@ -40,7 +39,6 @@ if (!$xmldata) {
 
 function xmlParser($xmlRequest)
 {
-    
     $requestor     = $xmlRequest->Requestor;
     $username      = $requestor->Username;
     $password      = $requestor->Password;
@@ -55,7 +53,7 @@ function xmlParser($xmlRequest)
         
         $shipment = $shipments->Shipment;
         foreach ($shipment as $sh) {
-            $sql = "insert into packages values(0,'$accountNumber','init',";
+           
             
             // add into packages table;
             $details  = $sh->Details;
@@ -69,6 +67,7 @@ function xmlParser($xmlRequest)
             $serviceCode       = $details->ServiceCode;
             $customerReference = $details->CustomerReference;
             $dhipmentReference = $details->ShipmentReference;
+            $AwbNum            = $details->AwbNum;
             
             $dhargesBillToAccountNumber = $billing->ChargesBillToAccountNumber;
             $dhargesBillToType          = $billing->ChargesBillToType;
@@ -86,6 +85,7 @@ function xmlParser($xmlRequest)
             $phone         = $shipper->Phone;
             $email         = $shipper->Email;
             $reference     = $shipper->Reference;
+            $shipper_accnum= $shipper->Accnum;
             
             $companyName   = $receiver->CompanyName;
             $contactName   = $receiver->ContactName;
@@ -98,8 +98,10 @@ function xmlParser($xmlRequest)
             $phone         = $receiver->Phone;
             $email         = $receiver->Email;
             $reference     = $receiver->Reference;
+            $receiver_accnum= $receiver->Accnum;
             
-            
+            $sql = "insert into packages values(0,'ASE$receiver_accnum',1,";
+                
             $nop     = $packages->NumberOfPackages;
             $package = $packages->Package;
             foreach ($package as $p) {
@@ -126,9 +128,11 @@ function xmlParser($xmlRequest)
                 $content = $p->Content;
                 
                 
-                $finalSql = $sql . "'$packageType',$weight,$length,$width,'$dimUnit',$customsValue,'$currency','$content')";
+                $finalSql = $sql . "'$packageType',$weight,$length,$width,$height,'$dimUnit',$customsValue,'$currency','$content','$AwbNum',now(),'$weightType', null,null,null,1)";
+
+
                 
-                $r=insertPackage($finalSql);
+                $r=insertPackage($finalSql, 1);
                 
             }
             $labelType = $sh->LabelType;
