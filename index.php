@@ -10,9 +10,9 @@
    $declaration_sub="";
    $faq_sub="";
    $contacts_sub="";
-include("header.php");
+   include("header.php");
 
-$main_info = getDashboardInfo($_SESSION["accNumber"]);
+   $main_info = getDashboardInfo($_SESSION["accNumber"]);
 
 ?>
 <!-- ============================================================== -->
@@ -155,7 +155,7 @@ $main_info = getDashboardInfo($_SESSION["accNumber"]);
                             Address line 1:
                           </strong>
                           <p class="text-muted">
-                            901 Penhorn Avenue, Unit 7
+                            801 Penhorn Avenue, Unit 7
                           </p>
                         </div>
                         <div class="about-info-p m-b-0">
