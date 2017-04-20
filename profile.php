@@ -5,7 +5,7 @@
    $turkey_sub="";
    $orders_sub="";
    $purchases_sub="";
-   $ask_buy_sub="";  
+   $ask_buy_sub="";
    $declaration_sub="";
    $faq_sub="";
    $contacts_sub="";
@@ -13,39 +13,35 @@
 include("header.php");
 
 if (isset($_SESSION['pincode'])) {
+    if (isset($_POST['edited_info'])) {
+        $phone           = $_POST["phone"];
+        $firstname       = $_POST["firstname"];
+        $lastname        = $_POST["lastname"];
+        $company         = $_POST["company"];
+        $address         = $_POST["address"];
+        $passport        = $_POST["passport"];
 
-if(isset($_POST['edited_info'])){
-$phone           = $_POST["phone"];
-$firstname       = $_POST["firstname"];
-$lastname        = $_POST["lastname"];
-$company         = $_POST["company"];
-$address         = $_POST["address"];
-$passport        = $_POST["passport"];
-
-    updateUser($firstname, $lastname, $phone, $company, $address, $passport, $_SESSION['accNumber']);
-    unset($_SESSION['edited_info']);
-}
+        updateUser($firstname, $lastname, $phone, $company, $address, $passport, $_SESSION['accNumber']);
+        unset($_SESSION['edited_info']);
+    }
 
 
-$result = userList($_SESSION['email']);
+    $result = userList($_SESSION['email']);
 
-if (!is_array($result)) {
-while ($row = $result->
+    if (!is_array($result)) {
+        while ($row = $result->
 fetch_assoc()) {
-$phone           = $row["phone"];
-$firstname       = $row["fullname"];
-$lastname        = $row["surname"];
-$company         = $row["company"];
-$address         = $row["address"];
-$register_date   = $row["register_date"];
-$last_login_date = $row["last_login_date"];
-$PObox           = $row["PObox"];
-$passport        = $row["pin"];
-}
-}
-
-
-?>
+            $phone           = $row["phone"];
+            $firstname       = $row["fullname"];
+            $lastname        = $row["surname"];
+            $company         = $row["company"];
+            $address         = $row["address"];
+            $register_date   = $row["register_date"];
+            $last_login_date = $row["last_login_date"];
+            $PObox           = $row["PObox"];
+            $passport        = $row["pin"];
+        }
+    } ?>
 <!-- ============================================================== -->
 <!-- Start right Content here -->
 <!-- ============================================================== -->                  
@@ -63,8 +59,7 @@ $passport        = $row["pin"];
                                 <div class="profile-info-name">
                                     <img src="assets/images/users/avatar.png" class="thumb-lg img-circle img-thumbnail" alt="profile-image">
                                     <h3 class="text-white"><?php
-    echo $_SESSION['username'];
-?>
+    echo $_SESSION['username']; ?>
 </h3>
                                 </div>
                             </div>
@@ -150,44 +145,44 @@ $passport        = $row["pin"];
                                                 <div class="about-info-p">
                                                     <strong>Email</strong>
                                                     <br>
-                                                    <p class="text-muted"><?php echo $_SESSION['email'];?></p>
+                                                    <p class="text-muted"><?php echo $_SESSION['email']; ?></p>
                                                 </div>
                                                 <div class="about-info-p">
                                                     <strong>Mobile</strong>
                                                     <br>
-                                                    <p class="text-muted"><?php echo $phone;?></p>
+                                                    <p class="text-muted"><?php echo $phone; ?></p>
                                                 </div>
                                                 <div class="about-info-p m-b-0">
                                                     <strong>Address</strong>
                                                     <br>
-                                                    <p class="text-muted"><?php echo $address;?></p>
+                                                    <p class="text-muted"><?php echo $address; ?></p>
                                                 </div>
                                             </div>
                                               <div class="col-md-6">
                                                 <div class="about-info-p m-b-0">
                                                     <strong>Company</strong>
                                                     <br>
-                                                    <p class="text-muted"><?php echo $company;?></p>
+                                                    <p class="text-muted"><?php echo $company; ?></p>
                                                 </div>
                                                 <div class="about-info-p m-b-0">
                                                     <strong>Passport number</strong>
                                                     <br>
-                                                    <p class="text-muted"><?php echo $passport;?></p>
+                                                    <p class="text-muted"><?php echo $passport; ?></p>
                                                 </div>
                                                 <div class="about-info-p m-b-0">
                                                     <strong>Registration date</strong>
                                                     <br>
-                                                    <p class="text-muted"><?php echo $register_date;?></p>
+                                                    <p class="text-muted"><?php echo $register_date; ?></p>
                                                 </div>
                                                   <div class="about-info-p m-b-0">
                                                     <strong>Last login date</strong>
                                                     <br>
-                                                    <p class="text-muted"><?php echo $last_login_date;?></p>
+                                                    <p class="text-muted"><?php echo $last_login_date; ?></p>
                                                 </div>  
                                                 <div class="about-info-p m-b-0">
                                                     <strong>PObox</strong>
                                                     <br>
-                                                    <p class="text-muted"><?php echo $PObox;?></p>
+                                                    <p class="text-muted"><?php echo $PObox; ?></p>
                                                 </div>
 
                                             </div> 
@@ -233,7 +228,7 @@ $passport        = $row["pin"];
                                              </div>
                                              <div class="about-info-p">
                                                 <strong>Address line 1:</strong>
-                                                <p class="text-muted">901 Penhorn Avenue, Unit 7</p>
+                                                <p class="text-muted">801 Penhorn Avenue, Unit 5</p>
                                              </div>
                                              <div class="about-info-p m-b-0">
                                                 <strong>Address line 2:</strong>
@@ -401,9 +396,10 @@ $passport        = $row["pin"];
 
 <?php $r=packageByUser($_SESSION['accNumber']);
 
-if($r==-1){
-echo "У Вас нет заказов";
-}else{?>
+    if ($r==-1) {
+        echo "У Вас нет заказов";
+    } else {
+        ?>
                                               
                                               
                                               <table id="datatable" class="table table-striped table-bordered">
@@ -443,7 +439,7 @@ echo "У Вас нет заказов";
                                                 </thead>
                                                 
                                                 <tbody>
-                                                  <?php echo $r;?>
+                                                  <?php echo $r; ?>
                                                   </tbody>
                                                   <tfoot>
                                                     <tr>
@@ -456,7 +452,8 @@ echo "У Вас нет заказов";
                                                     
                                                   </tfoot>
                                               </table>
-                                              <?php } ?>
+                                              <?php 
+    } ?>
                                                                                  </div>
                                     </div> 
                                 </div>
@@ -545,9 +542,10 @@ echo "У Вас нет заказов";
                                     <div class="panel-body"> 
                                          <?php
                                                 $r=getFriendsInfo($_SESSION['accNumber']);
-                                    if($r==-1){
-                                        echo "У Вас нет заказов";
-                                    }else{ ?>  
+    if ($r==-1) {
+        echo "У Вас нет заказов";
+    } else {
+        ?>  
                                         <table class="table">
                                              <thead>
                                                 <tr>
@@ -558,10 +556,11 @@ echo "У Вас нет заказов";
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php echo $r;?>
+                                                <?php echo $r; ?>
                                             </tbody>
                                         </table>
-                                        <?php } ?>
+                                        <?php 
+    } ?>
                                     </div> 
                                 </div>
                                 <!-- Personal-Information -->
@@ -577,9 +576,10 @@ echo "У Вас нет заказов";
                                      <?php
                                      $r=getBonusesInfo($_SESSION['accNumber']);
 
-                                    if($r==-1){
-                                        //echo "У Вас нет заказов";
-                                    }else{ ?>
+    if ($r==-1) {
+        //echo "У Вас нет заказов";
+    } else {
+        ?>
                                               <table id="datatable" class="table table-striped table-bordered">
                                                 <thead>
                                                   <tr>
@@ -605,7 +605,7 @@ echo "У Вас нет заказов";
                                                 </thead>
                                                 
                                                   <tbody>
-                                                  <?php echo $r;?>
+                                                  <?php echo $r; ?>
                                                   </tbody>
                                                   <tfoot>
                                                     <tr>
@@ -618,7 +618,8 @@ echo "У Вас нет заказов";
                                                     
                                                   </tfoot>
                                               </table>
-                                              <?php } ?>
+                                              <?php 
+    } ?>
                                     </div> 
                                 </div>
                                 <!-- Personal-Information -->
@@ -725,8 +726,9 @@ echo "У Вас нет заказов";
 
 
 <?php
+
 } else {
-echo "Please, login first";
+    echo "Please, login first";
 }
 include("footer.php");
 ?>
