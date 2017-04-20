@@ -220,7 +220,7 @@ fetch_assoc()) {
                                           <div id="pie-chart-container" class="flot-chart" style="height: 500px">
                                              <div class="about-info-p">
                                                 <strong>Contact Name:</strong>
-                                                <p class="text-muted"> Mehdi Ahmadov</p>
+                                                <p class="text-muted">  <?php echo $_SESSION["username"]?></p>
                                              </div>
                                              <div class="about-info-p">
                                                 <strong>Company Name:</strong>
@@ -342,7 +342,7 @@ fetch_assoc()) {
                                           <div id="pie-chart-container" class="flot-chart" style="height: 500px">
                                              <div class="about-info-p">
                                                 <strong>Contact Name:</strong>
-                                                <p class="text-muted"> Mehdi Ahmadov</p>
+                                                <p class="text-muted"> <?php echo $_SESSION["username"]?></p>
                                              </div>
                                              <div class="about-info-p">
                                                 <strong>Company Name:</strong>
