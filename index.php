@@ -155,7 +155,7 @@
                             Address line 1:
                           </strong>
                           <p class="text-muted">
-                            801 Penhorn Avenue, Unit 7
+                            801 Penhorn Avenue, Unit 5
                           </p>
                         </div>
                         <div class="about-info-p m-b-0">

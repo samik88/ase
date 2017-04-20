@@ -3,7 +3,7 @@
    $warehouse_sub="active";
    $orders_sub="";
    $purchases_sub="";
-   $ask_buy_sub="";  
+   $ask_buy_sub="";
    $declaration_sub="";
    $faq_sub="";
    $contacts_sub="";
@@ -47,7 +47,7 @@
                                              </div>
                                              <div class="about-info-p">
                                                 <strong>Address line 1:</strong>
-                                                <p class="text-muted">801 Penhorn Avenue, Unit 7</p>
+                                                <p class="text-muted">801 Penhorn Avenue, Unit 5</p>
                                              </div>
                                              <div class="about-info-p m-b-0">
                                                 <strong>Address line 2:</strong>
