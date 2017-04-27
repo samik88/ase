@@ -3,7 +3,7 @@
    $warehouse_sub="active";
    $orders_sub="";
    $purchases_sub="";
-   $ask_buy_sub="";  
+   $ask_buy_sub="";
    $declaration_sub="";
    $faq_sub="";
    $contacts_sub="";
@@ -39,7 +39,7 @@
                                  <div class="col-md-6">
                                              <div class="about-info-p">
                                                 <strong>Contact Name:</strong>
-                                                <p class="text-muted"> Elvira Chakhpazova</p>
+                                                <p class="text-muted"> <?php echo $_SESSION["username"]?>/p>
                                              </div>
                                              <div class="about-info-p">
                                                 <strong>Address line 1:</strong>
