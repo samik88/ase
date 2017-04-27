@@ -450,7 +450,8 @@
                             Company Name:
                           </strong>
                           <p class="text-muted">
-                            Emons Logistik GmbH / Baku GmbH
+                           Emons/ Baku Gmbh
+<br/>Genshagener Str. 27
                           </p>
                         </div>
                         <div class="about-info-p">
